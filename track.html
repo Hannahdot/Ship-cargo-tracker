@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Track Shipment</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .tracking input[type="text"], .tracking button {
+      max-width: 400px;
+      width: 90%;
+      display: block;
+      margin: 10px auto;
+    }
+    .tracking {
+      text-align: center;
+      margin-top: 30px;
+    }
+    .shipment-details {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #ccc;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .spacer {
+      height: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+  <script>
+    function checkTracking() {
+      const input = document.getElementById("tracking-code").value.trim();
+      const validCode = "539667479";
+      const details = document.getElementById("details");
+      const error = document.getElementById("error");
+      if (input === validCode) {
+        details.style.display = "block";
+        error.style.display = "none";
+      } else {
+        details.style.display = "none";
+        error.style.display = "block";
+      }
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <img src="logo.png" class="logo" />
+    <h1>Track Your Shipment</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="track.html">Track Shipment</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+  <main>
+    <section class="tracking">
+      <h2>Enter Tracking Code</h2>
+      <input type="text" id="tracking-code" placeholder="Enter tracking number..." />
+      <button onclick="checkTracking()">Track</button>
+      <p id="error" style="color:red; display:none;">Invalid tracking code. Please try again.</p>
+    </section>
+
+    <div id="details" class="shipment-details" style="display:none;">
+      <p><strong>Status:</strong> 🔴 Shipment on Hold – Item currently in Nigeria</p>
+      
+      <h3>Shipment History:</h3>
+      <table>
+        <tr>
+          <th>Date & Time</th>
+          <th>Description</th>
+          <th>Location</th>
+          <th>Status</th>
+        </tr>
+        <tr>
+          <td>July 15, 2025 – 7:00 AM</td>
+          <td>Item received from sender</td>
+          <td>Accra, Ghana</td>
+          <td>✅ Received</td>
+        </tr>
+        <tr>
+          <td>July 15, 2025 – 7:45 AM</td>
+          <td>Scanned at ACC-SORT001 | Accra Sorting Hub</td>
+          <td>Accra, Ghana</td>
+          <td>✅ Scanned</td>
+        </tr>
+        <tr>
+          <td>July 15, 2025 – 8:20 AM</td>
+          <td>Departed sorting facility</td>
+          <td>Accra, Ghana</td>
+          <td>📦 In Transit</td>
+        </tr>
+        <tr>
+          <td>July 15, 2025 – 4:30 PM</td>
+          <td>Item arrived at Lagos, Nigeria</td>
+          <td>Lagos, Nigeria</td>
+          <td>✅ Arrived</td>
+        </tr>
+        <tr>
+          <td>July 16, 2025 – 3:30 AM</td>
+          <td>Item departed from Lagos, Nigeria</td>
+          <td>Lagos, Nigeria</td>
+          <td>✈️ In Transit</td>
+        </tr>
+      </table>
+
+      <div class="spacer"></div>
+      <p><strong>Expected Delivery Date:</strong> July 25, 2025</p>
+      <p><strong>Destination:</strong> Tennessee</p>
+
+      <div class="spacer"></div>
+      <h3>Shipper Information</h3>
+      <p>Gabriela Mendez<br>Accra, Ghana<br>Email: gabriellamendez180@gmail.com</p>
+
+      <h3>Recipient Information</h3>
+      <p>Roland Herbert DeLucca, JR.<br>480 Georgetown Road, Clarksville, Tennessee 37043<br>Phone: 931-800-7976</p>
+
+      <h3>Shipment Path</h3>
+      <p>📍 Ghana → Nigeria → Belgium → Ohio → Tennessee</p>
+
+      <h3>Proof of Package</h3>
+      <img src="package.jpg" alt="Proof of Package" style="max-width:100%; border:1px solid #ccc;" />
+
+      <h3 style="color:red; font-weight:bold;">Note: A fee of $300 (handling and inspection) must be paid when item reaches Nigeria before it continues to its destination.</h3>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2025 Ship Cargo. All rights reserved.</p>
+  </footer>
+</body>
+</html>
